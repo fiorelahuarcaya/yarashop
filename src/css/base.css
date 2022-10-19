@@ -1,0 +1,225 @@
+
+@font-face {
+    font-family: "Raleway";
+    src: url("/public/fonts/Raleway-Thin.ttf");
+    font-weight: 100;
+    font-display: swap;
+  }
+  
+  @font-face {
+    font-family: "Raleway";
+    src: url("/public/fonts/Raleway-ExtraLight.ttf");
+    font-weight: 200;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "Raleway";
+    src: url("/public/fonts/Raleway-Light.ttf");
+    font-weight: 300;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "Raleway";
+    src: url("/public/fonts/Raleway-Regular.ttf");
+    font-weight: 400;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "Raleway";
+    src: url("/public/fonts/Raleway-Medium.ttf");
+    font-weight: 500;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "Raleway";
+    src: url("/public/fonts/Raleway-SemiBold.ttf");
+    font-weight: 600;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "Raleway";
+    src: url("/public/fonts/Raleway-Bold.ttf");
+    font-weight: 700;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "Raleway";
+    src: url("/public/fonts/Raleway-ExtraBold.ttf");
+    font-weight: 800;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "Raleway";
+    src: url("/public/fonts/Raleway-Black.ttf");
+    font-weight: 900;
+    font-display: swap;
+  }
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    /* border: solid 1px; */
+  }
+  
+  :root {
+    --text: #696973;
+    --dark: #1E2125;
+    --light: #ffffff;
+    --select-menu: rgba(30, 33, 37, 0.35);
+    --red: #D6002D;
+    --green: #059F14;
+
+  
+    /*---PRIMARY---*/
+    --primary-50: #E9DEEC;
+    --primary-100: #DDCDE2;
+    --primary-200: #D2BCD9;
+    --primary-300: #BC9BC5;
+    --primary-400: #A579B2;
+    --primary-500: #8F589F;
+    --primary-600: #72467F;
+    --primary-700: #56355F;
+    --primary-800: #392340;
+    --primary-900: #2B1A30;
+  
+    /*---SECONDARY---*/
+    --secondary-50: #FFE8DA;
+    --secondary-100: #FFDDC8;
+    --secondary-200: #FFD2B5;
+    --secondary-300: #FFBB90;
+    --secondary-400: #FFA56B;
+    --secondary-500: #FF8E46;
+    --secondary-600: #D27438;
+    --secondary-700: #A55A2A;
+    --secondary-800: #773F1C;
+    --secondary-900: #613215;
+
+    --gradient-purple: linear-gradient(0deg, #8F589F 6.06%, #3E303F 96.58%);
+  }
+
+  h1 {
+    font-family: "Raleway", sans-serif;
+    font-style: normal;
+    font-weight: 900;
+    font-size: 64px;
+    line-height: 72px;
+  }
+  
+  h2 {
+    font-family: "Raleway", sans-serif;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 40px;
+    line-height: 48px;
+  }
+  
+  h3 {
+    font-family: "Raleway", sans-serif;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 32px;
+    line-height: 36px;
+    letter-spacing: -0.02em;
+  }
+  
+  h4 {
+    font-family: "Raleway", sans-serif;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 24px;
+    line-height: 28px;
+    letter-spacing: -0.02em;
+  }
+  
+  .link-text {
+    /* LinkText */
+    font-family: "Raleway", sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 20px;
+    /* identical to box height */
+    text-decoration-line: underline;
+  }
+  
+  .button-text {
+    /* ButtonText */
+    font-family: "Raleway", sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 20px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+  
+  .small-text {
+    /* SmallerText */
+    font-family: "Raleway", sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 140%;
+  }
+
+  .large-text {
+    /* SmallerText */
+    font-family: "Raleway", sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 140%;
+  }
+
+  .bold-text {
+    font-family: "Raleway", sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 20px;
+  }
+  
+  p,
+  span,
+  .text {
+    font-family: "Raleway", sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 140%;
+  }
+  
+  .wrapper {
+    max-width: 1120px;
+    margin: 0 auto;
+  }
+  
+  .btn1 {
+    /* Primary/Primary - 500 */
+    background: var(--primary-500);
+    /* border: 2px solid var(--light); */
+    border-radius: 4px;
+    padding: 16px 24px;
+    color: var(--light);
+  }
+  
+  .btn1:hover {
+    /* Primary/Primary - 500 */
+    background: var(--primary-600);
+  }
+  .btn2 {
+    background: var(--secondary-500);
+    /* border: 2px solid var(--light); */
+    border-radius: 4px;
+    padding: 16px 24px;
+    color: var(--light);
+  }
+  
+  .btn2:hover {
+    background: var(--secondary-600);
+  }
+  
+
