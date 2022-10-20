@@ -9,35 +9,117 @@ import InputRl from "./input-RL.astro";
 
 <div class="form">
     <p class="bold-text">* Campos requeridos</p>
-    <div class="inputs">
+    <div class="inputs r1">
         <InputRl
             label="Nombre Completo"
             id="nombre"
             type="text"
         />
-
         <InputRl
             label="Correo Electrónico"
             id="correo"
             type="text"
         />
-
         <InputRl
             label="Numero de Teléfono"
             id="telefono"
             type="text"
         />
     </div>
+
+    <div class="inputs r2">
+        <InputRl
+            label="Dirección"
+            id="direccion"
+            type="text"
+        />
+        <InputRl
+            label="País"
+            id="pais"
+            type="text"
+        />
+        <InputRl
+            label="Contraseña"
+            id="contra"
+            type="password"
+        />
+
+        <InputRl
+            label="Confirmar Contraseña"
+            id="confirmoContra"
+            type="password"
+        />
+    </div>
+
+    <div class="inputs r3">
+        <InputRl
+            label="Tipo de Suscripción"
+            id="suscripcion"
+            type="text"
+        />
+        <InputRl
+            label="Nombre completo Administrador"
+            id="admin"
+            type="text"
+        />
+        <InputRl
+            label="Razón Social"
+            id="razonSocial"
+            type="text"
+        />
+    </div>
 </div>
 
-<button class="btn1">
+<button onclick="continuar1()" class="btn1 r1 ">
 <p class="button-text">Continuar</p>
+</button>
+
+<button onclick="continuar2()" class="btn1 r2 ">
+    <p class="button-text">Continuar</p>
+</button>
+
+<button onclick="registrar()" class="btn1 r3 ">
+    <p class="button-text">Registrar</p>
 </button>
 
 <div class="login">
     <p>¿Tienes una cuenta?</p>
     <a href="/login" class="link-text">Inicia Sesión</a>
 </div>
+
+<script is:inline>
+    function continuar1(){
+        const r1= document.getElementsByClassName("r1");
+        for(let i=0; i<r1.length; i++){
+            r1[i].style.display = "none";
+        }
+
+        const r2= document.getElementsByClassName("r2");
+        
+        for(let i=0; i<r2.length; i++){
+            r2[i].style.display = "flex";
+        }
+    }
+
+    function continuar2(){
+        const r2= document.getElementsByClassName("r2");
+        
+        for(let i=0; i<r2.length; i++){
+            r2[i].style.display = "none";
+        }
+
+        const r3= document.getElementsByClassName("r3");
+        
+        for(let i=0; i<r3.length; i++){
+            r3[i].style.display = "flex";
+        }
+    }
+
+    function registrar(){
+        
+    }
+
+</script>
 
 <style>
 
@@ -49,6 +131,7 @@ import InputRl from "./input-RL.astro";
         gap: 32px;
     }
 
+    
     .inputs{
         /* Auto layout */
         display: flex;
@@ -56,6 +139,19 @@ import InputRl from "./input-RL.astro";
         align-items: flex-start;
         gap: 32px;
     }
+
+    .r1{
+        display: flex;
+    }
+
+    .r2{
+        display: none;
+    }
+
+    .r3{
+        display: none;
+    }
+
     .login{
         /* Auto layout */
         display: flex;

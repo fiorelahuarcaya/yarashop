@@ -1,0 +1,224 @@
+---
+import Logo from "../../../public/svg/Logo.astro";
+import IconAjustes from "../../../public/svg/Menu-Admin/icon-ajustes.astro";
+import IconBd from "../../../public/svg/Menu-Admin/icon-bd.astro";
+import IconClients from "../../../public/svg/Menu-Admin/icon-clients.astro";
+import IconConfiguracion from "../../../public/svg/Menu-Admin/icon-configuracion.astro";
+import IconDashboard from "../../../public/svg/Menu-Admin/icon-dashboard.astro";
+import IconEmail from "../../../public/svg/Menu-Admin/icon-email.astro";
+import IconLista from "../../../public/svg/Menu-Admin/icon-lista.astro";
+import IconManejousu from "../../../public/svg/Menu-Admin/icon-manejoUsu.astro";
+import IconPagos from "../../../public/svg/Menu-Admin/icon-pagos.astro";
+import IconProductos from "../../../public/svg/Menu-Admin/icon-productos.astro";
+
+import ArrowDown from "../../../public/svg/Menu-Admin/arrow-down.astro";
+import ArrowUp from "../../../public/svg/Menu-Admin/arrow-up.astro";
+---
+
+<div>
+    <div class="menu-admin">
+        <Logo
+            height="80px"
+        />
+        <div class="items">
+            <a class="item-menu unico" href="">
+                <IconDashboard/>
+                <p class="text">Dashboard</p>
+            </a>
+
+
+            <div class="item_sub-item">
+                <div class="item-headSubMenu" onclick="escondeMuestra(0)">
+                    <div class="item-menu">
+                        <IconManejousu/>
+                        <p class="text">Manejo de Usuarios</p>
+                    </div>
+                    <div class="arrow-d"><ArrowDown/></div>
+                    <div class="arrow-u"><ArrowUp/></div>
+                </div>
+
+                <div class="sub-menu">
+                    <a href="" class="sub-item">
+                        <IconClients/>
+                        Administración de Clientes
+                    </a>
+                    <a href="" class="sub-item">
+                        <IconEmail/>
+                        Emails promocionales
+                    </a>
+                </div>
+            </div>
+
+            <div class="item_sub-item">           
+                <div class="item-headSubMenu" onclick="escondeMuestra(1)">
+                    <div class="item-menu">
+                        <IconBd/>
+                        <p class="text">Base de Datos</p>
+                    </div>
+                    <div class="arrow-d"><ArrowDown/></div>
+                    <div class="arrow-u"><ArrowUp/></div>
+                </div>
+                
+                <div class="sub-menu">
+                    <a href="" class="sub-item">
+                        <IconLista/>
+                        Categorías
+                    </a>
+                    <a href="" class="sub-item">
+                        <IconProductos/>
+                        Productos
+                    </a>
+                </div>
+            </div> 
+            
+            <div class="item_sub-item">  
+                <div class="item-headSubMenu" onclick="escondeMuestra(2)">
+                    <div class="item-menu">
+                        <IconConfiguracion/>
+                        <p class="text">Configuración del Sistema</p>
+                    </div>
+                    <div class="arrow-d"><ArrowDown/></div>
+                    <div class="arrow-u"><ArrowUp/></div>
+                </div>
+
+                <div class="sub-menu">
+                    <a href="" class="sub-item">
+                        <IconAjustes/>
+                        Ajustes
+                    </a>
+                    <a href="" class="sub-item">
+                        <IconClients/>
+                        Información de cuenta
+                    </a>
+                </div>
+            </div>
+
+            <div class="item_sub-item"> 
+                <div class="item-headSubMenu" onclick="escondeMuestra(3)">
+                    <div class="item-menu">
+                        <IconPagos/>
+                        <p class="text">Sistema de Pagos</p>
+                    </div>
+                    <div class="arrow-d"><ArrowDown/></div>
+                    <div class="arrow-u"><ArrowUp/></div>
+                </div>
+                
+                <div class="sub-menu">
+                    <a href="" class="sub-item">
+                        <IconLista/>
+                        Via de pago
+                    </a>
+                    <a href="" class="sub-item">
+                        <IconProductos/>
+                        Registros de depósito
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script is:inline>
+    function escondeMuestra(item){
+        const subMenu = document.getElementsByClassName("sub-menu");
+        let disp = subMenu[item].style.display;
+        if(disp=="flex"){
+            subMenu[item].style.display = "none";
+        }else{
+            subMenu[item].style.display = "flex";
+        }
+    }
+</script>
+<style>
+    .menu-admin{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 32px 0px;
+        gap: 37px;
+
+        width: 340px;
+        /* min-height: max-content; */
+        background: var(--gradient-purple);
+    }
+
+    .items{
+        /* Auto layout */
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+
+        width: 100%;
+    }
+
+    .items .item_sub-item{
+        /* Auto layout */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        width: 100%;
+    }
+
+    .item_sub-item .sub-menu{
+        /* Auto layout */
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0px;
+        gap: 8px;
+
+        width: 100%;
+
+        display: none;
+    }
+
+    .sub-menu .sub-item{
+        /* Auto layout */
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 4px 48px;
+        gap: 12px;
+
+        width: 100%;
+
+        color: var(--light);
+    }
+
+
+    .items .unico:hover,.item-headSubMenu:hover, .sub-menu .sub-item:hover{
+        background: rgba(30, 33, 37, 0.25);
+    }
+
+    .items .item-headSubMenu{
+        /* Auto layout */
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding-right:  24px;
+        width: 100%;
+
+        cursor: pointer;
+    }
+
+    .items .item-menu{
+        /* Auto layout */
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 8px 24px;
+        gap: 16px;
+        width: 100%;
+
+        color: var(--light);
+    }
+
+
+    .arrow-u{
+        display: none;
+    }
+</style>
