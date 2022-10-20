@@ -22,7 +22,7 @@ function isActiveRoute(route: string): string {
             <a class={`bold-text item ${isActiveRoute("/login")}`} href="/login">
               LOGIN</a
             >
-            <div class="btn2"><p class="button-text">REGÍSTRATE</p></div>
+            <div class="btn2"><a href="/registro" class="button-text">REGÍSTRATE</a></div>
           </div>
     </div>
 </div>
@@ -34,7 +34,8 @@ function isActiveRoute(route: string): string {
         justify-content: center;
         align-items: center;
         gap: 480px;
-
+        
+        width: 100%;
         background-color: var(--primary-900);
 
         padding: 16px 0px;
@@ -54,5 +55,9 @@ function isActiveRoute(route: string): string {
     .itemsMenu .active {
         color: var(--primary-400);
         border-bottom: 4px solid var(--primary-400);
+    }
+
+    .itemsMenu a{
+      color: var(--light);
     }
 </style>

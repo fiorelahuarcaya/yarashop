@@ -1,0 +1,68 @@
+---
+import InputRl from "./input-RL.astro";
+---
+
+<div>
+    <h2>Registro</h2>
+
+</div>
+
+<div class="form">
+    <p class="bold-text">* Campos requeridos</p>
+    <div class="inputs">
+        <InputRl
+            label="Nombre Completo"
+            id="nombre"
+            type="text"
+        />
+
+        <InputRl
+            label="Correo Electrónico"
+            id="correo"
+            type="text"
+        />
+
+        <InputRl
+            label="Numero de Teléfono"
+            id="telefono"
+            type="text"
+        />
+    </div>
+</div>
+
+<button class="btn1">
+<p class="button-text">Continuar</p>
+</button>
+
+<div class="login">
+    <p>¿Tienes una cuenta?</p>
+    <a href="/login" class="link-text">Inicia Sesión</a>
+</div>
+
+<style>
+
+    .form{
+        /* Auto layout */
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 32px;
+    }
+
+    .inputs{
+        /* Auto layout */
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 32px;
+    }
+    .login{
+        /* Auto layout */
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 8px;
+
+        color: var(--text);
+    }
+</style>

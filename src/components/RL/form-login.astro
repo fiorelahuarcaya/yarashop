@@ -1,0 +1,62 @@
+---
+import InputRl from "./input-RL.astro";
+---
+
+<h2>Inicia Sesión</h2>
+<div class="form">
+    <InputRl
+        label="Correo Electrónico"
+        id="correo"
+        type="text"
+    />
+
+    <InputRl
+        label="Contraseña"
+        id="contra"
+        type="password"
+    />
+</div>
+
+<button class="btn1">
+<p class="button-text">Iniciar</p>
+</button>
+
+<div class="links">
+    <div class="register">
+        <p>¿No tienes una cuenta?</p>
+        <a href="/registro" class="link-text">Regístrate</a>
+    </div>
+    <a href="">¿Olvidaste tu contraseña?</a>
+</div>
+
+<script>
+    
+</script>
+
+<style>
+    .form{
+        /* Auto layout */
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 32px;
+    }
+    .links{
+        /* Auto layout */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+
+        color: var(--text);
+    }
+
+    .links .register{
+        /* Auto layout */
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+</style>

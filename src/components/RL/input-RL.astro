@@ -1,0 +1,42 @@
+---
+interface Props {
+    label: string;
+    id: string;
+    type: string;
+}
+
+const { label } = Astro.props;
+const { id } = Astro.props;
+const { type } = Astro.props;
+---
+
+<div class="input-RL">
+    <label class="text" for={id}>{label}</label>
+    <input class="text" type={type} name={id} id={id}>
+</div>
+
+<style>
+    .input-RL{
+        /* Auto layout */
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0px;
+        gap: 8px;
+    }
+
+    input{
+        width: 400px;
+        background: #C4C4C4;
+        opacity: 0.6;
+        border-radius: 6px;
+        padding: 12px;
+
+        border: none;
+        outline: none;
+    }
+
+    input:focus{
+        border: solid var(--dark) 1px;
+    }
+</style>
