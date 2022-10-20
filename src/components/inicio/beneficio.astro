@@ -1,0 +1,99 @@
+---
+---
+<div class="beneficio">
+    <div class="superior">
+        <p class="large-text">NEGOCIO</p>
+        <div class="title">
+            <h2>Descubre Nuestros Beneficios</h2>
+            <p class="large-text ">Satisface tus necesidades financieras</p>
+        </div>
+        <div class="btn2"><p class="button-text">Empieza ahora</p></div>
+    </div>
+
+    <div class="lista">
+        <div class="item text-light" style="background-color: var(--dark);">
+            <h3>Estrategia</h3>
+            <p>Una vez empieces a trabajar con nosotros, un equipo se encargará de tu empresa durante toda tu estadía en nuestra plataforma.</p>
+        </div>
+        <div class="item text-light" style="background-color: var(--primary-500);">
+            <h3>Implementación</h3>
+            <p>Cuando la revisión de tu empresa terminó podemos ayudarte a implementar tu inventario en nuestro sistema.</p>
+        </div>
+        <div class="item text-dark" style="background-color: var(--light);">
+            <h3>Evaluación</h3>
+            <p>Una vez implementada tu bodega, nuestro equipo revisará la post implementación. Si surgiera algún tipo de problema, te ayudaremos.</p>
+        </div>
+    </div>
+</div>
+
+
+<style>
+    .beneficio{
+        /* Auto layout */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        gap: 0px;
+    }
+    .superior{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 64px 0px;
+        gap: 64px;
+
+        z-index: 10;
+        width: 100%;
+
+        color: var(--light);
+        background: url("../../../public/images/Inicio/Fondo2.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+        filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    }
+
+    .title{
+        /* Auto layout */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 0px;
+        gap: 32px;
+
+        width: 380px;
+        text-align: center;
+    }
+    .title p{
+        color: var(--primary-100);
+        opacity: 0.5;
+    }
+
+    .lista{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .item{
+        /* Auto layout */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 64px 48px;
+        text-align: center;
+        gap: 8px;
+
+        width: 360px;
+        height: 100%;
+    }
+
+    .text-light{
+        color: var(--light);
+    }
+    .text-dark{
+        color: var(--dark);
+    }
+</style>

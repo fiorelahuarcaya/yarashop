@@ -1,0 +1,50 @@
+<div class="numbers">
+    <div class="item">
+        <p class="number">1000</p>
+        <p class="large-text">Clientes Felices</p>
+    </div>
+    <div class="item">
+        <p class="number">550</p>
+        <p class="large-text">Empresas en nuestra plataforma</p>
+    </div>
+    <div class="item">
+        <p class="number">10</p>
+        <p class="large-text">Administradores calificados</p>
+    </div>
+    <div class="item">
+        <p class="number">50</p>
+        <p class="large-text">Menciones en las redes sociales</p>
+    </div>
+</div>
+
+<style>
+    .numbers{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        padding: 32px 0px;
+        gap: 16px;
+        
+        background-color: var(--secondary-500);
+    }
+
+    .item{
+        /* Auto layout */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+
+        text-align: center;
+        color: var(--light);
+        width: 240px;
+    }
+
+    .item .number{
+        font-style: normal;
+        font-weight: 700;
+        font-size: 64px;
+        line-height: 75px;
+        text-align: center;
+    }
+</style>

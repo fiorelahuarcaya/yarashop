@@ -1,0 +1,68 @@
+---
+interface Props {
+  user: string;
+  business: string;
+  review: string;
+  photo: string
+}
+
+const { user } = Astro.props;
+const { business } = Astro.props;
+const { review } = Astro.props;
+const { photo } = Astro.props;
+
+import Comillas from '../../../../public/svg/Inicio/Comillas.astro';
+---
+
+
+<div class="itemTestimonio">
+    <div class="comillas"> <Comillas></Comillas></div>
+    <div class="person-review">
+        <img src={photo} alt={"IMG-"+user}>
+        <div class="person">
+            <p>{user}</p>
+            <p class="small-text" style="color: var(--primary-300);">{business}</p>
+        </div>
+    </div>
+    <p>{review}</p>
+</div>
+
+
+<style>
+    .itemTestimonio{
+        /* Auto layout */
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        align-items: center;
+        padding: 40px 32px;
+        gap: 12px;
+        text-align: center;
+        
+        position: relative;
+        width: 380px;
+        height: 100%;
+        background: var(--dark);
+        color: var(--light);
+    }
+
+    .itemTestimonio .comillas{
+        position: absolute;
+        left: 60px;
+        top: 88px;
+    }
+    .itemTestimonio .person-review{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .person-review .person{
+        /* Auto layout */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+</style>

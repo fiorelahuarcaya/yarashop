@@ -61,6 +61,7 @@
     padding: 0;
     box-sizing: border-box;
     text-decoration: none;
+    font-family: 'Raleway';
     /* border: solid 1px; */
   }
   
@@ -204,6 +205,7 @@
     border-radius: 4px;
     padding: 16px 24px;
     color: var(--light);
+    cursor: pointer;
   }
   
   .btn1:hover {
@@ -216,6 +218,7 @@
     border-radius: 4px;
     padding: 16px 24px;
     color: var(--light);
+    cursor: pointer;
   }
   
   .btn2:hover {

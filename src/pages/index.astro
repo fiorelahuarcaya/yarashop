@@ -1,15 +1,27 @@
 ---
+import Layout from "../components/layout.astro";
+import MenuIndex from "../components/menus/menu-index.astro";
+import Header from "../components/inicio/header.astro";
+import Ofrecemos from "../components/inicio/ofrecemos.astro";
+import Nosotros from "../components/inicio/nosotros.astro";
+import Beneficio from "../components/inicio/beneficio.astro";
+import Plans from "../components/inicio/plans.astro";
+import Servicios from "../components/inicio/servicios.astro";
+import Testimonios from "../components/inicio/testimonios.astro";
+import Numeros from "../components/inicio/numeros.astro";
+import Footer from "../components/footer.astro";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout title="Inicio">
+	<MenuIndex></MenuIndex>
+	<Header></Header>
+	<Ofrecemos></Ofrecemos>
+	<Nosotros></Nosotros>
+	<Beneficio></Beneficio>
+	<Plans></Plans>
+	<Servicios></Servicios>
+	<Testimonios></Testimonios>
+	<Numeros></Numeros>
+	<Footer></Footer>
+</Layout>
+  

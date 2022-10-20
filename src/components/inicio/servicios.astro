@@ -1,0 +1,60 @@
+---
+import ItemService from "./Sub-components/itemService.astro";
+---
+
+<div class="services">
+    <div class="header">
+        <p class="large-text" style="color: var(--primary-500);">CALIDAD</p>
+        <h3>Servicios que brindamos</h3>
+    </div>
+    <div class="list">
+        <ItemService
+        image="../../../public/images/Inicio/servicio1.png"
+        title="Actualiza tu Inventario"
+        description="Puedes actualizar tu inventario todas las veces que necesites, ya sea añadiendo o eliminando. Incluso unido con las ventas."
+        url="/"
+        />
+        <ItemService
+        image="../../../public/images/Inicio/servicio2.png"
+        title="Automatiza tus ventas"
+        description="Nuestra plataforma puede atuomatizar tus ventas. Solo ingresa el producto a vender, y todo lo necesario será actualizado en el sistema."
+        url="/"
+        />
+        <ItemService
+        image="../../../public/images/Inicio/servicio3.png"
+        title="Revisa tu reporte del día"
+        description="Cuando se realicen las ventas, en el dashboard se actualizará todo la actividad del día. Esto permite crear unos reportes diarios y mensuales de cómo va tu empresa!"
+        url="/"
+        />
+    </div>
+</div>
+
+<style>
+    .services{
+        /* Auto layout */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 64px 0px;
+        gap: 48px;
+    }
+
+    .services .header{
+        /* Auto layout */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 0px;
+        gap: 8px;
+    }
+
+    .services .list{
+        /* Auto layout */
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        padding: 0px;
+        gap: 32px;
+    }
+    
+</style>

@@ -1,0 +1,56 @@
+---
+import Logo from "../../../public/svg/Logo.astro";
+
+const { pathname } = Astro.url;
+
+function isActiveRoute(route: string): string {
+  if (route === pathname) return "active";
+  if (pathname.startsWith(route) && route !== "/") return "active";
+  return "";
+}
+---
+<div class="menu">
+    <Logo></Logo>
+    <div class="nav">
+        <div class="itemsMenu">
+            <a class={`bold-text item ${isActiveRoute("/")}`} href="/"> INICIO</a>
+            <a class={`bold-text item ${isActiveRoute("/blog")}`} href="/blog">
+              BLOG</a
+            >
+            <a class={`bold-text item ${isActiveRoute("/login")}`} href="/login">
+              LOGIN</a
+            >
+            <div class="btn2"><p class="button-text">REGÍSTRATE</p></div>
+          </div>
+    </div>
+</div>
+
+<style>
+    .menu{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 480px;
+
+        background-color: var(--primary-900);
+
+        padding: 16px 0px;
+    }
+
+    .itemsMenu{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 48px;
+    }
+
+    .itemsMenu .item{
+        color: var(--light);
+    }
+
+    .itemsMenu .active {
+        color: var(--primary-400);
+        border-bottom: 4px solid var(--primary-400);
+    }
+</style>

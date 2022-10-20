@@ -1,0 +1,102 @@
+---
+interface Props {
+  title: string;
+  price: string;
+  subtitle: string;
+  type: string;
+  items: Array<string>;
+}
+
+const { title } = Astro.props;
+const { price } = Astro.props;
+const { subtitle } = Astro.props;
+const { items } = Astro.props;
+const { type } = Astro.props;
+---
+
+<div class={`plan ${type}`}>
+  <h3>{title}</h3>
+  <div class={`price ${type}`}>
+    <p class="number">{price}</p>
+    <p class="large-text">{subtitle}</p>
+  </div>
+  <div class="list">
+    {items.map((item) => (
+        <p>{item}</p>
+    ))}
+  </div>
+    <div class={`btn1 ${type}`}><p class="button-text">Empieza</p></div>
+</div>
+
+<style>
+  .plan{
+        /* Auto layout */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 48px;
+        gap: 48px;
+
+        /* Shadow-Price */
+        width: 250px;
+        box-shadow: 0px 6px 14px rgba(121, 126, 135, 0.5);
+        border-radius: 8px;
+  }
+
+    .plan.dark{
+        background-color: var(--dark);
+        color: var(--light);
+    }
+    .plan.light{
+        background-color: var(--light);
+        color: var(--dark);
+    }
+
+    .plan .dark{
+        color: var(--secondary-500);
+    }
+    .plan .light{
+        color: var(--primary-500);
+    }
+    
+    .btn1.dark{
+        background-color: var(--secondary-600);
+        color: var(--light);
+    }
+    .btn1.dark:hover{
+        background-color: var(--secondary-800);
+    }
+
+
+    .btn1.light{
+        background-color: var(--primary-700);
+        color: var(--light);
+    }
+    .btn.light:hover{
+        background-color: var(--primary-900);
+    }
+
+    .plan .price{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0px;
+
+    }
+
+    .list{
+        /* Auto layout */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+    }
+  .plan .price .number{
+    font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 72%;
+  }
+
+</style>

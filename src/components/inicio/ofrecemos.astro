@@ -1,0 +1,55 @@
+---
+import Almacenamiento from "../../../public/svg/Inicio/Almacenamiento.astro";
+import Facilidad from "../../../public/svg/Inicio/Facilidad.astro";
+import Ingresos from "../../../public/svg/Inicio/Ingresos.astro";
+---
+<div class="ofrece">
+    <div class="item text-light" style="background-color: var(--dark);">
+        <Ingresos></Ingresos>
+        <h3>Almacenamiento de sus Productos</h3>
+        <p>Toda la data de tus productos se almacenarán en nuestra base de datos. Tú puedes actualizarlo las veces que necesites. Incluso, cuando vendas tus productos, esta se actualizará automáticamente</p>
+    </div>
+    <div class="item text-light" style="background-color: var(--primary-500);">
+        <Facilidad></Facilidad>
+        <h3>Facilidad en tu Inventario</h3>
+        <p>Nuestra plataforma soporta cualquier tipo de modificación en tu inventario. Cualquier cosa que necesites y pienses, podrás realizarlo.</p>
+    </div>
+    <div class="item text-dark" style="background-color: var(--light);">
+        <Almacenamiento></Almacenamiento>
+        <h3>
+            Mayores Ingresos en tu empresa
+        </h3>
+        <p>En la economía de hoy en día, un servicio web para tu empresa es una necesidad. Más adelante verás casos de éxito con nuestra plataforma.</p>
+    </div>
+
+</div>
+
+
+<style>
+    .ofrece{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        padding: 40px 0px;
+    }
+
+    .item{
+        /* Auto layout */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 64px 48px;
+        text-align: center;
+        gap: 8px;
+
+        width: 400px;
+        height: 440px;
+    }
+
+    .text-light{
+        color: var(--light);
+    }
+    .text-dark{
+        color: var(--dark);
+    }
+</style>

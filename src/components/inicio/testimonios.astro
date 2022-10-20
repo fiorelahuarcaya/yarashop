@@ -1,0 +1,59 @@
+---
+import ItemTestimonio from "./Sub-components/itemTestimonio.astro";
+---
+
+<div class="reviews">
+    <div class="header">
+        <p class="large-text">TESTIMONIOS</p>
+        <h3>NUESTROS CLIENTES NOS RECOMIENDAN</h3>
+    </div>
+    <div class="list">
+        <ItemTestimonio
+            user="Seamus Hodges"
+            business="Bodega “Anita”"
+            review="Gracias a esta plataforma las ventas dentro de mi bodega se sienten mucho más fluidas de lo que eran antes"
+            photo="../../../public/images/Inicio/user1.png"
+        />
+        <ItemTestimonio
+            user="Ayra Little"
+            business="Bodega “Paquita”"
+            review="Gracias a YARASHOP la tarea de mantener un inventario actualizado fue mucho más sencilla. "
+            photo="../../../public/images/Inicio/user2.png"
+        />
+        <ItemTestimonio
+            user="Huey Sloan"
+            business="Bodega “Mariano”"
+            review="Gracias a esta plataforma, todas las actividades de nuestra empresa fueron mucho mejor."
+            photo="../../../public/images/Inicio/user3.png"
+        />
+    </div>
+</div>
+
+<style>
+    .reviews{
+        /* Auto layout */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 64px 0px;
+        gap: 48px;
+
+        background-color: var(--primary-300);
+    }
+
+    .reviews .header{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .reviews .list{
+        /* Auto layout */
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        padding: 0px;
+        gap: 24px;
+    }
+</style>

@@ -1,0 +1,51 @@
+---
+interface Props {
+  image: string;
+  title: string;
+  description: string;
+  url: string
+}
+
+const { image } = Astro.props;
+const { title } = Astro.props;
+const { description } = Astro.props;
+const { url } = Astro.props;
+---
+
+<div class="item">
+    <img src={image} alt={"IMG-" + title}>
+    <div class="content">
+        <h4>{title}</h4>
+        <p>{description}</p>
+    </div>
+    <a href={url} class="link-text">Leer más</a>
+</div>
+
+<style>
+    .item{
+        /* Auto layout */
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0px;
+        gap: 32px;
+
+        width: 350px;
+    }
+
+    .item img{
+        width: 100%;
+        height: 240px;
+        object-fit: cover;
+    }
+
+    .item .content{
+        /* Auto layout */
+
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0px;
+        gap: 16px;
+    }
+</style>

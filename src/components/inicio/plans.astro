@@ -1,0 +1,41 @@
+---
+import ItemPlan from "./Sub-components/itemPlan.astro";
+---
+<div class="items">
+    <ItemPlan
+        title="Básico"
+        price="S/.0"
+        subtitle="Gratuito"
+        items={["Soporte 24/7", "Base Datos 8GB", "FREE"]}
+        type="light"
+    />
+
+    <ItemPlan
+        title="Estándar"
+        price="S/.50"
+        subtitle="Mensual"
+        items={["PLAN  ESTÁNDAR", "Soporte 24/7", "Base de datos 30GB"]}
+        type="light"
+    />
+
+    <ItemPlan
+        title="Plus Plus"
+        price="S/.80"
+        subtitle="Mensual"
+        items={["ILIMITADO", "Soporte 24/7", "Base de datos 1TB"]}
+        type="dark"
+    />
+</div>
+
+
+<style>
+    .items{
+        /* Auto layout */
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        padding: 40px 0px;
+        gap: 24px;
+    }
+</style>
