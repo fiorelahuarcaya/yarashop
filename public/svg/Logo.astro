@@ -1,1 +1,9 @@
-<img src="public/images/Logo.png" alt="Logo" height="64px">
+---
+interface Props {
+    height: string
+}
+
+const { height } = Astro.props;
+---
+
+<img src="public/images/Logo.png" alt="Logo" height={height}>

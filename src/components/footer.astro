@@ -3,11 +3,52 @@ import Logo from "../../public/svg/Logo.astro";
 ---
 
 <div class="footer">
-    <div class="wrapper"></div>
+    <div class="wrapper up">
+        <div class="column1">
+            <Logo
+            height="100px"
+            />
+            <p>YARASHOP tiene como objetivo ser la plataforma que agrupa todas las bodegas del Perú! Disfruta de este viaje con nosotros!!</p>
+        </div>
+        <div class="column2">
+            <h3>Horas de Trabajo</h3>
+            <p>Nuestro soporte está disponible todos los días de la semana</p>
+            <p class="small-text">De Lunes a Lunes</p>
+        </div>
+    </div>
 </div>
 
 <style>
     .footer{
-        
+        background-color: var(--dark);
+        color: var(--light);
+    }
+    .footer .up{
+        /* Auto layout */
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 48px 0px;
+    }
+
+    .up .column1{
+        /* Auto layout */
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 24px;
+
+        width: 360px;
+    }
+
+    .up .column2{
+        /* Auto layout */
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 24px;
+
+        width: 320px;
     }
 </style>
