@@ -1,0 +1,40 @@
+---
+interface Props {
+    section:string;
+    title: string;
+}
+const { section } = Astro.props;
+const { title } = Astro.props;
+
+import Layout from "../layout.astro";
+import MenuAdmin from "../menus/menu-admin.astro";
+import HeaderTitle from "../header-title.astro";
+---
+
+<Layout title={title}>
+    <MenuAdmin></MenuAdmin>
+    <div class="contenido">
+        <HeaderTitle title={section}/>
+        <slot />
+    </div>
+</Layout>
+
+<style>
+    body{
+        /* Auto layout */
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+    }
+
+    .contenido{
+        /* Auto layout */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 0px 0px 72px;
+        gap: 48px;
+
+        width: 100%;
+    }
+</style>

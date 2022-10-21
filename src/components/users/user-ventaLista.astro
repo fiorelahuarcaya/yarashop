@@ -1,0 +1,173 @@
+---
+
+---
+
+<div class="title">
+    <h4 class="large-text">Venta con listado de producto</h4>
+</div>
+<div>
+    <div class="content">
+        <div class="ventas">
+            <table id="table-venta"> 
+                <thead>
+                    <td>Producto</td>
+                    <td>Precio Unitario</td>
+                    <td>Cantidad</td>
+                    <td>Total</td>
+                    <td>Acción</td>
+                </thead>
+            </table>
+            <button onclick="addRow()">
+                <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M5 9V5M5 5V1M5 5H9M5 5H1" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+            </button>
+        </div>
+
+        <div class="buttons">
+            <button class="btn2"><p class="button-text">Cancelar Venta</p></button>
+            <button class="btn1" onclick="vender()"><p class="button-text">Registrar venta</p></button>
+        </div>
+    </div>
+</div>
+
+<script is:inline>
+        var productos = ["1","2","3","4"];
+
+        function vender(){
+            const products = document.getElementsByName("producto");
+            const cantidades = document.getElementsByName("cantidad");
+            const totales = document.getElementsByName("total");
+            console.log(cantidades[0].value);
+            for(let i=0; i<productos.length; i++){
+                fetch(`http://localhost:9000/api/ventasT/1/1/${products[i].value}/${cantidades[i].value}/${totales[i].value}`, { method: "GET" }).then((response) => {
+                    alert("Transacción hecha correctamente.")
+                    location.reload();
+                })
+            }
+
+        }
+
+        function addRow(){
+            const tbl = document.getElementById("table-venta");
+            const row = document.createElement("tr");
+            //Producto
+                const cellP = document.createElement("td");
+                var selectProducto = document.createElement("select");
+                selectProducto.name = "producto";
+                cellP.appendChild(selectProducto);
+
+                for (var i = 0; i < productos.length; i++) {
+                    var option = document.createElement("option");
+                    option.value = productos[i];
+                    option.text = productos[i];
+                    selectProducto.appendChild(option);
+                }
+                row.appendChild(cellP);
+
+            //Precio Unidad    
+                const cellU = document.createElement("td");
+                var unidad = document.createElement("INPUT");
+                unidad.name = "unidad";
+                unidad.setAttribute("type", "number");
+                cellU.appendChild(unidad);
+                row.appendChild(cellU);
+
+            //Cantidad   
+            const cellC = document.createElement("td");
+                var cantidad = document.createElement("INPUT");
+                cantidad.name = "cantidad";
+                cantidad.setAttribute("type", "number");
+                cellC.appendChild(cantidad);
+                row.appendChild(cellC);
+            
+            //Total   
+            const cellT = document.createElement("td");
+                var total = document.createElement("INPUT");
+                total.name = "total";
+                total.setAttribute("type", "number");
+                cellT.appendChild(total);
+                row.appendChild(cellT);
+            
+            //Acción
+            const cellAc = document.createElement("td");
+                var butDelete = document.createElement("button");
+                butDelete.innerHTML = "Delete";
+                butDelete.onclick = function (butDelete) {
+                    // var row = but.rowIndex;
+                    butDelete.path[2].remove();
+                };
+                cellAc.appendChild(butDelete);
+                row.appendChild(cellAc);
+
+            tbl.appendChild(row);
+        }
+</script>
+
+<style>
+    .title{
+        /* Auto layout */
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0px 0px 0px 100px;
+        gap: 10px;
+
+        width: 100%;
+    }
+
+    .ventas{
+        /* Auto layout */
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+    }
+
+    .ventas button{
+        background-color: var(--secondary-500);
+        padding: 8px 16px;
+
+        border: solid 1px;
+    }
+    .ventas button:hover{
+        background-color: var(--secondary-600);
+    }
+
+    #table-venta{
+        background-color: var(--light);
+        text-align: center;
+    }
+    #table-venta thead{
+        background-color: var(--primary-300);
+        font-weight: 500;
+    }
+    #table-venta td{
+        padding: 8px;
+        border: 1px solid var(--dark);
+    }
+
+    .content{
+        /* Auto layout */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 32px;
+    }
+    .table-modificator :global(td) {
+        min-width: 60px;
+        padding: 8px;
+        /* border-bottom: solid 1px var(--dark); */
+    }
+
+    .buttons{
+        /* Auto layout */
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+        padding: 0px;
+
+        width: 100%;
+    }
+</style>
