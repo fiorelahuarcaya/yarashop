@@ -7,6 +7,7 @@ const routesProducto = require("./routesProducto");
 const routesProveedor = require("./routesProveedor");
 const routesTienda = require("./routesTienda");
 const routesVentasTienda = require("./ventasPorTienda");
+const routesCreateDB = require("./createDBodeguero");
 
 const app = express();
 app.set("port", process.env.PORT || 9000);
@@ -25,6 +26,7 @@ app.use("/api/producto", routesProducto);
 app.use("/api/proveedor", routesProveedor);
 app.use("/api/tienda", routesTienda);
 app.use("/api/ventasT", routesVentasTienda);
+app.use("/api/createDB", routesCreateDB);
 
 // server running -----------------------------------
 app.listen(app.get("port"), () => {

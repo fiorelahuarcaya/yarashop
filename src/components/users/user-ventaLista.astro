@@ -32,7 +32,21 @@
 </div>
 
 <script is:inline>
-        var productos = ["1","2","3","4"];
+
+        var productos = [];
+        
+        fetch(`http://localhost:9000/api/producto/1`, { method: "GET" }).then((response) => {response.json().then((data) => {
+                data.forEach(element => {
+                    // console.log(element)
+                    var Producto = {
+                        id: element.idProducto,
+                        name: element.nombreP,
+                        pUnitari: element.precioVentaR
+                    }
+                    productos.push(Producto);
+                });
+            });
+        })
 
         function vender(){
             const products = document.getElementsByName("producto");
@@ -49,18 +63,26 @@
         }
 
         function addRow(){
+            
             const tbl = document.getElementById("table-venta");
             const row = document.createElement("tr");
             //Producto
                 const cellP = document.createElement("td");
                 var selectProducto = document.createElement("select");
                 selectProducto.name = "producto";
+
+                selectProducto.onchange = function (selectProducto){
+                    const row =selectProducto.path[2];
+                    console.log(row.getElementsByName("producto"));
+                }
+
                 cellP.appendChild(selectProducto);
 
                 for (var i = 0; i < productos.length; i++) {
                     var option = document.createElement("option");
-                    option.value = productos[i];
-                    option.text = productos[i];
+                    console.log(productos[i]);
+                    option.value = productos[i].id;
+                    option.text = productos[i].name;
                     selectProducto.appendChild(option);
                 }
                 row.appendChild(cellP);
@@ -85,6 +107,7 @@
             const cellT = document.createElement("td");
                 var total = document.createElement("INPUT");
                 total.name = "total";
+                total.value = unidad.value * cantidad.value;
                 total.setAttribute("type", "number");
                 cellT.appendChild(total);
                 row.appendChild(cellT);
