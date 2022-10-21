@@ -1,11 +1,12 @@
 ---
-import Layout from "../../components/layout.astro";
-import MenuAdmin from "../../components/menus/menu-admin.astro";
+import LayoutAdmin from "../../components/admin/layout-admin.astro";
+import AdminCliente from "../../components/admin/adminCliente.astro";
 ---
 
-<Layout
+<LayoutAdmin
     title="Administración de Clientes"
+    section="Manejo de Usuarios"
 >
-<MenuAdmin></MenuAdmin>
-</Layout>
+    <AdminCliente/>
+</LayoutAdmin>
 

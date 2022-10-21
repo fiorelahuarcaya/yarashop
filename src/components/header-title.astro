@@ -1,0 +1,48 @@
+---
+import "../css/base.css";
+
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<div class="header-admin">
+    <div class="title">
+        <svg width="24" height="20" viewBox="0 0 34 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M2 2H32" stroke="#56355F" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M2 10H32" stroke="#56355F" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M2 18H32" stroke="#56355F" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <h4>{title}</h4>    
+    </div>
+</div>
+
+<style>
+    .header-admin{
+        /* Auto layout */
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 32px;
+        width: 100%;
+
+        background: var(--light);
+        /* Shadow-Price */
+
+        box-shadow: 0px 6px 14px rgba(121, 126, 135, 0.5);
+    }
+
+    .header-admin .title{
+        /* Auto layout */
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 16px;
+    }
+
+    .title h4{
+        color: var(--primary-700);
+    }
+</style>

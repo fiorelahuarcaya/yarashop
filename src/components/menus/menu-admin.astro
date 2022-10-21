@@ -122,10 +122,17 @@ import ArrowUp from "../../../public/svg/Menu-Admin/arrow-up.astro";
 <script is:inline>
     function escondeMuestra(item){
         const subMenu = document.getElementsByClassName("sub-menu");
+        const arrowDown = document.getElementsByClassName("arrow-d");
+        const arrowUp = document.getElementsByClassName("arrow-u");
+
         let disp = subMenu[item].style.display;
         if(disp=="flex"){
+            arrowDown[item].style.display = "flex";
+            arrowUp[item].style.display = "none";
             subMenu[item].style.display = "none";
         }else{
+            arrowDown[item].style.display = "none";
+            arrowUp[item].style.display = "flex";
             subMenu[item].style.display = "flex";
         }
     }
@@ -138,7 +145,8 @@ import ArrowUp from "../../../public/svg/Menu-Admin/arrow-up.astro";
         padding: 32px 0px;
         gap: 37px;
 
-        width: 340px;
+        width: 320px;
+        min-height: 750px;
         /* min-height: max-content; */
         background: var(--gradient-purple);
     }
@@ -189,7 +197,7 @@ import ArrowUp from "../../../public/svg/Menu-Admin/arrow-up.astro";
     }
 
 
-    .items .unico:hover,.item-headSubMenu:hover, .sub-menu .sub-item:hover{
+    .active .items .unico:hover,.item-headSubMenu:hover, .sub-menu .sub-item:hover{
         background: rgba(30, 33, 37, 0.25);
     }
 
