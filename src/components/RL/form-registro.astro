@@ -12,12 +12,12 @@ import InputRl from "./input-RL.astro";
     <div class="inputs r1">
         <InputRl
             label="Nombre Completo"
-            id="nombre"
+            id="name"
             type="text"
         />
         <InputRl
             label="Correo Electrónico"
-            id="correo"
+            id="email"
             type="text"
         />
         <InputRl
@@ -40,7 +40,7 @@ import InputRl from "./input-RL.astro";
         />
         <InputRl
             label="Contraseña"
-            id="contra"
+            id="pswd"
             type="password"
         />
 
@@ -54,12 +54,7 @@ import InputRl from "./input-RL.astro";
     <div class="inputs r3">
         <InputRl
             label="Tipo de Suscripción"
-            id="suscripcion"
-            type="text"
-        />
-        <InputRl
-            label="Nombre completo Administrador"
-            id="admin"
+            id="susc"
             type="text"
         />
         <InputRl
@@ -116,8 +111,38 @@ import InputRl from "./input-RL.astro";
     }
 
     function registrar(){
-        
+    let nombreOB = document.getElementById("name").value;
+    let correoOB = document.getElementById("email").value;
+    let passwordOB = document.getElementById("pswd").value;
+    let suscripcionOB = document.getElementById("susc").value;
+    async function postData(url = "", data = {}) {
+        const response = await fetch(url, {
+        method: "POST", // *GET, POST, PUT, DELETE, etc.
+        mode: "cors", // no-cors, *cors, same-origin
+        cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
+        credentials: "same-origin", // include, *same-origin, omit
+        headers: {
+            "Content-Type": "application/json",
+            // 'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        redirect: "follow", // manual, *follow, error
+        referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+        body: JSON.stringify(data), // body data type must match "Content-Type" header
+        });
+        return response.json(); // parses JSON response into native JavaScript objects
     }
+
+    postData("http://localhost:9000/api/BodMongo", {
+        idAdmin:  8,
+        nombreCompleto: nombreOB,
+        correo: correoOB,
+        password: passwordOB,
+        suscripcion: suscripcionOB,
+    }).then((data) => {
+        console.log(data); // JSON data parsed by `data.json()` call
+    });
+    }
+    
 
 </script>
 

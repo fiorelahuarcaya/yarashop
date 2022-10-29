@@ -1,7 +1,3 @@
-/* PARA NO PERDERME - Este script sirve para realizar la transacción:
- * Venta de productos de la base de datos de la tienda.
- * SE CREARÁ EL REPORTE DE VENTA DE LA TIENDA.
- */
 
 const { MongoClient } = require("mongodb");
 const express = require("express");
