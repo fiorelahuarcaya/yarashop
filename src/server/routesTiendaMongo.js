@@ -30,14 +30,11 @@ routes.get("/", async (req, res) => {
 routes.post("/", async (req, res) => {
   const usuario = [
     {
-      idProducto: req.body.idProducto,
-      idCategoria: req.body.idCategoria,
-      nombreP: req.body.nombreP,
-      descripcion: req.body.descripcion,
-      precioCosto: req.body.precioCosto,
-      precioVentaR: req.body.precioVenta,
-      rucProvee: req.body.rucProvee,
-      codBarra: req.body.codBarra,
+      idTienda: req.body.idTienda,
+      idAdministrador: req.body.idAdministrador,
+      nombreTienda: req.body.nombreTienda,
+      telefono: req.body.telefono,
+      ubicacion: req.body.ubicacion,
     },
   ];
   try {
@@ -50,10 +47,10 @@ routes.post("/", async (req, res) => {
 });
 
 routes.delete("/:id", async (req, res) => {
-  const idProducto = req.params.id * 1.0;
+  const idTienda = req.params.id * 1.0;
   try {
     await client.connect();
-    const result = await deletebyId(client, idProducto);
+    const result = await deletebyId(client, idTienda);
     res.send(result);
   } finally {
     await client.close();
@@ -61,15 +58,15 @@ routes.delete("/:id", async (req, res) => {
 });
 
 routes.put("/:id", async (req, res) => {
-  let idProducto = req.params.id * 1.0;
+  let idTienda = req.params.id * 1.0;
   const usuario = {
-    precioCosto: req.body.precioCosto,
-    precioVentaR: req.body.precioVentaR,
+    telefonoProvee: req.body.telefonoProvee,
+    direccionProvee: req.body.direccionProvee,
   };
 
   try {
     await client.connect();
-    const result = await updatebyId(client, idProducto, usuario);
+    const result = await updatebyId(client, idTienda, usuario);
     res.send(result);
   } finally {
     await client.close();
@@ -79,16 +76,16 @@ routes.put("/:id", async (req, res) => {
 async function createUser(client, newUser) {
   const result = await client
     .db("yarashop")
-    .collection("producto")
+    .collection("tienda")
     .insertMany(newUser);
   return result;
 }
 
-async function findUserbyId(client, idProducto) {
+async function findUserbyId(client, idTienda) {
   const result = await client
     .db("yarashop")
-    .collection("producto")
-    .findOne({ idProducto: idProducto });
+    .collection("tienda")
+    .findOne({ idTienda: idTienda });
 
   return result;
 }
@@ -96,7 +93,7 @@ async function findUserbyId(client, idProducto) {
 async function findProducts(client) {
   const result = await client
     .db("yarashop")
-    .collection("producto")
+    .collection("tienda")
     .find({})
     .toArray();
   if (result) {
@@ -106,20 +103,20 @@ async function findProducts(client) {
   }
 }
 
-async function deletebyId(client, idProducto) {
+async function deletebyId(client, idTienda) {
   const result = await client
     .db("yarashop")
-    .collection("producto")
-    .deleteOne({ idProducto: idProducto });
+    .collection("tienda")
+    .deleteOne({ idTienda: idTienda });
   console.log(`${result.deletedCount} document(s) was/were deleted.`);
   return result;
 }
 
-async function updatebyId(client, idProducto, modifiedUser) {
+async function updatebyId(client, idTienda, modifiedUser) {
   const result = await client
     .db("yarashop")
-    .collection("producto")
-    .updateOne({ idProducto: idProducto }, { $set: modifiedUser });
+    .collection("tienda")
+    .updateOne({ idTienda: idTienda }, { $set: modifiedUser });
 
   console.log(`${result.matchedCount} document(s) matched the query criteria.`);
   console.log(`${result.modifiedCount} document(s) was/were updated.`);
