@@ -16,7 +16,7 @@
 
 <script is:inline>
 
-    
+
     const headers = ["ID", "Nombre","Correo","Estado", "Plan","Acciones"];
     const sectionTM = document.getElementsByClassName("table-modificator")[0];
         // creates a <table> element and a <tbody> element
@@ -28,7 +28,6 @@
     
     fetch(`http://localhost:9000/api/BodMongo`).then((response) => {
         response.json().then((data) => {
-            console.log(data);
 
             console.log(data[0].idAdmin);
             for (let i = 0; i <= data.length; i++) {
@@ -45,7 +44,7 @@
                     }
                 }else{
                     const cellID = document.createElement("td");
-                    const cellTextID = document.createTextNode(data[i-1].idAdmin);
+                    const cellTextID = document.createTextNode(data[i-1].idBodeguero);
                     cellID.appendChild(cellTextID);
                     row.appendChild(cellID);
 

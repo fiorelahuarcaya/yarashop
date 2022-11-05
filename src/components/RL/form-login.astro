@@ -17,8 +17,8 @@ import InputRl from "./input-RL.astro";
     />
 </div>
 
-<button  class="btn1">
-<a href="/admin/clientes" class="button-text">Iniciar</a>
+<button  class="btn1 button-text" onclick="iniciarSesion()">
+    <p>Iniciar</p>
 </button>
 
 <div class="links">
@@ -29,8 +29,35 @@ import InputRl from "./input-RL.astro";
     <a href="">¿Olvidaste tu contraseña?</a>
 </div>
 
-<script>
-    
+<script is:inline>
+    function iniciarSesion()
+    {
+        let correo = document.getElementById("correo");
+        let contra = document.getElementById("contra");
+
+        sessionStorage.setItem('init', false);
+
+        // console.log(correo.value);
+        fetch(`http://localhost:9000/api/BodMongo/${correo.value}`, { method: "GET" }).then((response) => {
+            response.json().then((data) => {
+            // console.log(data);
+
+            sessionStorage.setItem('correo', data.correo);
+            sessionStorage.setItem('idBodeguero', data.idBodeguero);
+            sessionStorage.setItem('nombreCompleto', data.nombreCompleto);
+            sessionStorage.setItem('password', data.password);
+            sessionStorage.setItem('suscripcion', data.suscripcion);
+
+            // console.log(contra.value + "==" + sessionStorage.getItem('password'));
+            if(contra.value == sessionStorage.getItem('password')){
+                sessionStorage.setItem('init', true);
+                window.location = "admin/clientes";
+            }else{
+                alert("Se ha ingresado una contraseña incorrecta.")
+            }
+            })
+        })
+    }
 </script>
 
 <style>

@@ -6,16 +6,28 @@ const uri =
   "mongodb+srv://bratty289:YGTl63QI@pruebamongo.lnhsrdp.mongodb.net/test";
 const client = new MongoClient(uri);
 
-routes.get("/:id", async (req, res) => {
-  const id = req.params.id * 1.0;
+// routes.get("/:id", async (req, res) => {
+//   const id = req.params.id * 1.0;
+//   try {
+//     await client.connect();
+//     const resultado = await findUserbyId(client, id);
+//     res.send(resultado);
+//   } finally {
+//     await client.close();
+//   }
+// });
+
+routes.get("/:correo", async (req, res) => {
+  const correo = req.params.correo;
   try {
     await client.connect();
-    const resultado = await findUserbyId(client, id);
+    const resultado = await findUserbyCorreo(client, correo);
     res.send(resultado);
   } finally {
     await client.close();
   }
 });
+
 
 routes.get("/", async (req, res) => {
   try {
@@ -73,11 +85,22 @@ routes.put("/:id", async (req, res) => {
   }
 });
 
+
+
 async function createUser(client, newUser) {
   const result = await client
     .db("yarashop")
     .collection("bodeguero")
     .insertMany(newUser);
+  return result;
+}
+
+async function findUserbyCorreo(client, correo) {
+  const result = await client
+    .db("yarashop")
+    .collection("bodeguero")
+    .findOne({ correo: correo });
+
   return result;
 }
 
