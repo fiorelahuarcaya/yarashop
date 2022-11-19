@@ -16,7 +16,7 @@
 
 <script is:inline>
 
-    
+
     const headers = ["ID", "Nombre","Correo","Estado", "Plan","Acciones"];
     const sectionTM = document.getElementsByClassName("table-modificator")[0];
         // creates a <table> element and a <tbody> element
@@ -28,9 +28,8 @@
     
     fetch(`http://localhost:9000/api/BodMongo`).then((response) => {
         response.json().then((data) => {
-            console.log(data);
 
-            console.log(data[0].idAdmin);
+            console.log(data[0].idBodeguero);
             for (let i = 0; i <= data.length; i++) {
                 const row = document.createElement("tr");
                 if(i==0){
@@ -45,7 +44,7 @@
                     }
                 }else{
                     const cellID = document.createElement("td");
-                    const cellTextID = document.createTextNode(data[i-1].idAdmin);
+                    const cellTextID = document.createTextNode(data[i-1].idBodeguero);
                     cellID.appendChild(cellTextID);
                     row.appendChild(cellID);
 
@@ -53,7 +52,7 @@
                     var textNombre = document.createElement("INPUT");
                     textNombre.setAttribute("type", "text");
                     textNombre.setAttribute("value", data[i-1].nombreCompleto);
-                    textNombre.id = "name"+data[i-1].idAdmin;
+                    textNombre.id = "name"+data[i-1].idBodeguero;
                     cellNombre.appendChild(textNombre);
                     row.appendChild(cellNombre);
 
@@ -61,7 +60,7 @@
                     const textCorreo =  document.createElement("INPUT");
                     textCorreo.setAttribute("type", "text");
                     textCorreo.setAttribute("value", data[i-1].correo);
-                    textCorreo.id = "correo"+data[i-1].idAdmin;
+                    textCorreo.id = "correo"+data[i-1].idBodeguero;
                     cellCorreo.appendChild(textCorreo);
                     row.appendChild(cellCorreo);
 
@@ -80,9 +79,9 @@
                     btnDel.className += "btn2";
                     btnDel.innerHTML = "Delete";
                     btnDel.onclick = function(){
-                        fetch(`http://localhost:9000/api/BodMongo/${data[i-1].idAdmin}`, { method: "DELETE" }).then(
+                        fetch(`http://localhost:9000/api/BodMongo/${data[i-1].idBodeguero}`, { method: "DELETE" }).then(
                             () => {
-                            alert("Se ha eliminado el usuario con ID:" + data[i-1].idAdmin);
+                            alert("Se ha eliminado el usuario con ID:" + data[i-1].idBodeguero);
                             setTimeout('', 1000);
                             location.reload();
                             }
@@ -98,8 +97,8 @@
                     btnUp.className += "btn1";
                     btnUp.innerHTML = "Update";
                     btnUp.onclick = function() {
-                        let nombreOB = document.getElementById(`name${data[i-1].idAdmin}`).value;
-                        let correoOB = document.getElementById(`correo${data[i-1].idAdmin}`).value;
+                        let nombreOB = document.getElementById(`name${data[i-1].idBodeguero}`).value;
+                        let correoOB = document.getElementById(`correo${data[i-1].idBodeguero}`).value;
 
                         // Example POST method implementation:
                         async function postData(url = "", data = {}) {
@@ -120,7 +119,7 @@
                             return response.json(); // parses JSON response into native JavaScript objects
                         }
 
-                        postData(`http://localhost:9000/api/BodMongo/${data[i-1].idAdmin}`, {
+                        postData(`http://localhost:9000/api/BodMongo/${data[i-1].idBodeguero}`, {
                             nombreCompleto: nombreOB,
                             correo: correoOB,
                         }).then((data) => {
