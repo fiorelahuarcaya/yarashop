@@ -42,7 +42,7 @@ routes.get("/", async (req, res) => {
 routes.post("/", async (req, res) => {
   const usuario = [
     {
-      idAdmin: req.body.idAdmin,
+      idBodeguero: req.body.idBodeguero,
       nombreCompleto: req.body.nombreCompleto,
       correo: req.body.correo,
       password: req.body.password,
@@ -70,7 +70,7 @@ routes.delete("/:id", async (req, res) => {
 });
 
 routes.put("/:id", async (req, res) => {
-  let idAdmin = req.params.id * 1.0;
+  let idBodeguero = req.params.id * 1.0;
   const usuario = {
     nombreCompleto: req.body.nombreCompleto,
     correo: req.body.correo,
@@ -78,7 +78,7 @@ routes.put("/:id", async (req, res) => {
 
   try {
     await client.connect();
-    const result = await updatebyId(client, idAdmin, usuario);
+    const result = await updatebyId(client, idBodeguero, usuario);
     res.send(result);
   } finally {
     await client.close();
@@ -104,11 +104,11 @@ async function findUserbyCorreo(client, correo) {
   return result;
 }
 
-async function findUserbyId(client, idAdmin) {
+async function findUserbyId(client, idBodeguero) {
   const result = await client
     .db("yarashop")
     .collection("bodeguero")
-    .findOne({ idAdmin: idAdmin });
+    .findOne({ idBodeguero: idBodeguero });
 
   return result;
 }
@@ -126,21 +126,23 @@ async function findProducts(client) {
   }
 }
 
-async function deletebyId(client, idAdmin) {
+async function deletebyId(client, idBodeguero) {
   const result = await client
     .db("yarashop")
     .collection("bodeguero")
-    .deleteOne({ idAdmin: idAdmin });
+    .deleteOne({ idBodeguero: idBodeguero });
+
   console.log(`${result.deletedCount} document(s) was/were deleted.`);
   return result;
 }
 
-async function updatebyId(client, idAdmin, modifiedUser) {
+async function updatebyId(client, idBodeguero, modifiedUser) {
   const result = await client
     .db("yarashop")
     .collection("bodeguero")
-    .updateOne({ idAdmin: idAdmin }, { $set: modifiedUser });
-
+    .updateOne({ idBodeguero: idBodeguero }, { $set: modifiedUser });
+  
+    console.log(idBodeguero);
   console.log(`${result.matchedCount} document(s) matched the query criteria.`);
   console.log(`${result.modifiedCount} document(s) was/were updated.`);
   return result;
