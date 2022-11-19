@@ -54,7 +54,7 @@ async function comprar(client, tiendaID, userId, productID, quantity, status) {
     const transactionResults = await session.withTransaction(async () => {
       const updateInventoryResults = await inventoryCollection.updateOne(
         { idProducto: productID },
-        { $inc: { cantidad: quantity * -1 } },
+        { $inc: { cantidad: quantity * -1 } }, //Actualizamos la cantidad
         { session }
       );
       console.log(
@@ -68,6 +68,7 @@ async function comprar(client, tiendaID, userId, productID, quantity, status) {
         return;
       }
 
+      // Ingreso Reporte de Venta
       const insertOrderResults = await ordersCollection.insertOne(
         {
           idUsuario: userId,
@@ -102,73 +103,3 @@ async function comprar(client, tiendaID, userId, productID, quantity, status) {
 }
 
 module.exports = routes;
-
-/*
-
-async function transferMoney(client, account1, account2, amount) {
-  const accountsCollection = client.db("banking").collection("accounts");
-  const session = client.startSession();
-
-  const transactionOptions = {
-    readPreference: "primary",
-    readConcern: { level: "local" },
-    writeConcern: { w: "majority" },
-  };
-
-  try {
-    const transactionResults = await session.withTransaction(async () => {
-      const subtractMoneyResults = await accountsCollection.updateOne(
-        { _id: account1 },
-        { $inc: { balance: amount * -1 } },
-        { session }
-      );
-      console.log(
-        `${subtractMoneyResults.matchedCount} document(s) found in the accounts collection with _id ${account1}.`
-      );
-      console.log(
-        `${subtractMoneyResults.modifiedCount} document(s) was/were updated to remove the money.`
-      );
-      if (subtractMoneyResults.modifiedCount !== 1) {
-        await session.abortTransaction();
-        return;
-      }
-
-      // Add the money to the second account
-      const addMoneyResults = await accountsCollection.updateOne(
-        { _id: account2 },
-        { $inc: { balance: amount } },
-        { session }
-      );
-      console.log(
-        `${addMoneyResults.matchedCount} document(s) found in the accounts collection with _id ${account2}.`
-      );
-      console.log(
-        `${addMoneyResults.modifiedCount} document(s) was/were updated to add the money.`
-      );
-      if (addMoneyResults.modifiedCount !== 1) {
-        await session.abortTransaction();
-        return;
-      }
-    }, transactionOptions);
-
-    if (transactionResults) {
-      console.log(
-        "The money was successfully transferred. Database operations from the transaction are now visible outside the transaction."
-      );
-    } else {
-      console.log(
-        "The money was not transferred. The transaction was intentionally aborted."
-      );
-    }
-  } catch (e) {
-    console.log(
-      "The money was not transferred. The transaction was aborted due to an unexpected error: " +
-        e
-    );
-  } finally {
-    // Step 4: End the session
-    await session.endSession();
-  }
-}
-
-module.exports = routes;*/
