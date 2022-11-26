@@ -12,12 +12,17 @@
     "cypress:open": "cypress open"
   },
   "dependencies": {
+    "@astrojs/react": "^1.2.2",
+    "@types/react": "^18.0.25",
+    "@types/react-dom": "^18.0.9",
     "astro": "^1.5.1",
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "mongodb": "^4.11.0",
     "mssql": "^9.0.1",
     "mysql": "^2.18.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "serve": "^14.0.1"
   },
   "devDependencies": {

@@ -145,7 +145,10 @@
     /* identical to box height */
     text-decoration-line: underline;
   }
-  
+  button{
+    cursor: pointer;
+  }
+
   .button-text {
     /* ButtonText */
     font-family: "Raleway", sans-serif;

@@ -1,5 +1,6 @@
 ---
 import Logo from "../../../public/svg/Logo.astro";
+import BridgeExample from "../BridgeExample";
 
 const { pathname } = Astro.url;
 
@@ -22,7 +23,8 @@ function isActiveRoute(route: string): string {
             <a class={`bold-text item ${isActiveRoute("/login")}`} href="/login">
               LOGIN</a
             >
-            <div class="btn2"><a href="/registro" class="button-text">REGÍSTRATE</a></div>
+            <BridgeExample client:load backgroundColor="var(--secondary-500)" color="white" url="/registro" text="REGÍSTRATE"/>
+            
           </div>
     </div>
 </div>
